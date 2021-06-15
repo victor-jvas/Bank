@@ -27,7 +27,7 @@ namespace Bank
                         Withdraw();
                         break;
                     case "5":
-                        Deposit()
+                        Deposit();
                         break;
                     case "C":
                         ClearScreen();
