@@ -35,6 +35,8 @@ namespace Bank
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
+
+                userOption = GetUserOption();
             }
         }
 
@@ -60,12 +62,40 @@ namespace Bank
 
         private static void ListAccounts()
         {
-            throw new NotImplementedException();
+            int count=1;
+            Console.WriteLine("Listing Accounts");
+
+            if(accountList.Count == 0)  {
+                Console.WriteLine("No accounts registered.");
+                return;
+            }
+
+            foreach (var account in accountList)
+            {
+                Console.WriteLine("#{0} - {1}", count, account.ToString());
+                count++;
+            }
         }
 
         private static void CreateAccount()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Create new account");
+
+            Console.WriteLine("Press 1 for Personal Account or 2 for Business Account: ");
+            int accountTypeInput = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Insert the client's name: ");
+            string name = Console.ReadLine();
+
+            Console.WriteLine("Insert the initial balance: ");
+            double balance = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Insert the credit: ");
+            double credit = double.Parse(Console.ReadLine());
+
+            Account account = new Account(name, balance, credit, (AccountType)accountTypeInput);
+
+            accountList.Add(account);
         }
 
         private static string GetUserOption()

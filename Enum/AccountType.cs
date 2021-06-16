@@ -2,8 +2,8 @@ namespace Bank
 {
     public enum AccountType
     {
-        Personal,
-        Business
+        Personal = 1,
+        Business = 2
  
     }
 }

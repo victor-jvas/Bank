@@ -53,10 +53,10 @@ namespace Bank
         public override string ToString()
         {
             string output = "";
-            output += "Account Type " + this.AccountType + "| ";
-            output += "Name" + this.Name + "| ";
-            output += "Balance" + this.Balance + "| ";
-            output += "Credit" + this.Credit + "| ";
+            output += "Account Type: " + this.AccountType + " | ";
+            output += "Name: " + this.Name + " | ";
+            output += "Balance: " + this.Balance + " | ";
+            output += "Credit: " + this.Credit + " | ";
             return output;
         }
     }
