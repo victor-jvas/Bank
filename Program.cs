@@ -50,6 +50,8 @@ namespace Bank
             Console.WriteLine("Inform the account number: ");
             int accountNumber = int.Parse(Console.ReadLine());
 
+            if(!ValidateAccount(accountNumber)) return;
+
             Console.WriteLine("Deposit amount: ");
             double amount = double.Parse(Console.ReadLine());
 
@@ -60,6 +62,8 @@ namespace Bank
         {
             Console.WriteLine("Inform the account number: ");
             int accountNumber = int.Parse(Console.ReadLine());
+
+            if(!ValidateAccount(accountNumber)) return;
 
             Console.WriteLine("Amount to withdraw: ");
             double amount = double.Parse(Console.ReadLine());
@@ -72,8 +76,12 @@ namespace Bank
             Console.WriteLine("From account number: ");
             int fromAccount = int.Parse(Console.ReadLine());
 
+             if(!ValidateAccount(fromAccount)) return;
+
             Console.WriteLine("To account number: ");
             int toAccount = int.Parse(Console.ReadLine());
+
+             if(!ValidateAccount(toAccount)) return;
 
             Console.WriteLine("Value to transfer: ");
             double value = double.Parse(Console.ReadLine());
@@ -137,6 +145,14 @@ namespace Bank
             string userOption = Console.ReadLine().ToUpper();
             Console.WriteLine();
             return userOption;
+        }
+
+        private static bool ValidateAccount(int accountIndex)
+        {
+            if (accountList.Count > accountIndex && accountIndex >= 0) return true;
+
+            Console.WriteLine("Invalid Account!");
+            return false;
         }
     }
 }
