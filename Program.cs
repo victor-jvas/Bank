@@ -42,27 +42,48 @@ namespace Bank
 
         private static void ClearScreen()
         {
-            throw new NotImplementedException();
+            Console.Clear();
         }
 
         private static void Deposit()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Inform the account number: ");
+            int accountNumber = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Deposit amount: ");
+            double amount = double.Parse(Console.ReadLine());
+
+            accountList[accountNumber].Deposit(amount);
         }
 
         private static void Withdraw()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Inform the account number: ");
+            int accountNumber = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Amount to withdraw: ");
+            double amount = double.Parse(Console.ReadLine());
+
+            accountList[accountNumber].Withdraw(amount);
         }
 
         private static void Transfer()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("From account number: ");
+            int fromAccount = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("To account number: ");
+            int toAccount = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Value to transfer: ");
+            double value = double.Parse(Console.ReadLine());
+
+            accountList[fromAccount].Transfer(value, accountList[toAccount]);
         }
 
         private static void ListAccounts()
         {
-            int count=1;
+            int count=0;
             Console.WriteLine("Listing Accounts");
 
             if(accountList.Count == 0)  {
